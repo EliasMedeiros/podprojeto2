@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/loja-virtual/!svn/ver/48/LojaVirtual/src/model
+END
+Usuario.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/loja-virtual/!svn/ver/23/LojaVirtual/src/model/Usuario.java
+END
+Administrador.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/src/model/Administrador.java
+END
+Marca.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/src/model/Marca.java
+END
+Venda.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/loja-virtual/!svn/ver/39/LojaVirtual/src/model/Venda.java
+END
+Telefone.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/loja-virtual/!svn/ver/21/LojaVirtual/src/model/Telefone.java
+END
+Cliente.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/src/model/Cliente.java
+END
+Endereco.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/loja-virtual/!svn/ver/21/LojaVirtual/src/model/Endereco.java
+END
+Produto.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/loja-virtual/!svn/ver/48/LojaVirtual/src/model/Produto.java
+END
+Pessoa.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/loja-virtual/!svn/ver/23/LojaVirtual/src/model/Pessoa.java
+END
+Categoria.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/src/model/Categoria.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/loja-virtual/!svn/ver/39/LojaVirtual/src/model/Item.java
+END

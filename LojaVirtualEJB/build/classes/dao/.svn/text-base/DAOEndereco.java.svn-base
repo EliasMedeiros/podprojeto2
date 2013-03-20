@@ -1,0 +1,11 @@
+package dao;
+
+import model.Endereco;
+
+public class DAOEndereco extends DAOJPA<Endereco> {
+	
+	public DAOEndereco() {
+		super();
+	}
+
+}

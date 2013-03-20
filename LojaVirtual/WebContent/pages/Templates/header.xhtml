@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition>
+		<p:dialog header="#{msg.login}" widgetVar="dlg" position="center" modal="true" width="250" height="150">
+	
+		<div id="login">
+			<h:panelGroup rendered="#{!usuarioBean.logado}">
+				<h:form method="POST">
+					<h:outputLabel value="#{msg.usuario}" />:
+						<h:inputText name="login" validator="#{usuarioBean.SetaLogin}"/> 
+					<h:outputLabel value="#{msg.senha}" />: 
+						<h:inputSecret name="password" validator="#{usuarioBean.ValidaUsuario}"/>
+					<h:commandButton value="#{msg.ok}" />
+					<h:messages showDetail="false" showSummary="true"/>
+				</h:form>
+			</h:panelGroup>
+		</div>
+	</p:dialog>
+	<h:panelGroup rendered="#{!usuarioBean.logado}">
+		<p:commandButton styleClass="botao" value="#{msg.login}" type="button" onclick="dlg.show()"/>
+	</h:panelGroup>
+		
+			<h:panelGroup rendered="#{usuarioBean.logado}">
+				<div id="sair"> 
+					<a href="/LojaVirtual/logout">
+					<p:commandButton  styleClass="botao" value="#{msg.sair}" type="button" onclick=""/>
+						
+					</a>
+				</div>
+				<div id="bemvindo" style="color:#FFF"> #{msg.bemVindo}, <i>#{usuarioBean.login}</i>!
+				</div>
+			</h:panelGroup>
+
+		<div id="logo"> </div>
+		
+		<div id="menu">
+			<span>
+				<a href="/LojaVirtual/index.jsf"><img src="/LojaVirtual/img/#{msg.img}/home.jpg" /></a>
+				<a href="/LojaVirtual/pages/meusDados.jsf"><img src="/LojaVirtual/img/#{msg.img}/dados.jpg" /></a>
+				<h:panelGroup rendered="#{!usuarioBean.admin}">
+					<a href="/LojaVirtual/pages/carrinho.jsf" ><img src="/LojaVirtual/img/#{msg.img}/carrinho.jpg" /></a>
+				</h:panelGroup>
+
+			</span>
+			
+		</div>
+	</ui:composition>
+</html>

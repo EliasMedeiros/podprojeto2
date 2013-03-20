@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:composition>
+		<h:panelGroup rendered="#{usuarioBean.admin}">
+			<div>
+				<img src="/LojaVirtual/img/#{msg.img}/administracao.jpg" /> <br />
+				<ul>
+					<li><a href="/pages/admin/novoProduto.jsf">#{msg.cadastrarproduto}</a></li>
+				</ul>
+			</div>
+		</h:panelGroup>
+	
+		<div>
+			<img src="/LojaVirtual/img/#{msg.img}/categorias.jpg" /> <br />
+			<ul>
+				<ui:repeat var="categorias" value="#{categoria.listaCategorias}">
+					<li><a href="/LojaVirtual/pages/produtos.jsf?categoria=#{categorias.nome}&amp;page=1&amp;show=8&amp;orderBy=nome-Asc"><h:outputText value="#{categorias.nome}"/></a></li>
+				</ui:repeat>
+			</ul> 
+		</div>
+	</ui:composition>
+</html>

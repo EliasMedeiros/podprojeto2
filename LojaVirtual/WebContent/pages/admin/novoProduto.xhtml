@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/pages/Templates/template.xhtml">
+	<ui:define name="conteudo">
+		<h:panelGroup rendered="#{usuarioBean.admin}">
+			<img src="/LojaVirtual/img/em_construcao2.jpg" width="300px"/>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{!usuarioBean.admin}">
+			<h:outputLabel value="#{msg.semacesso}"/>
+		</h:panelGroup>
+	</ui:define> 
+</ui:composition>
+</html>

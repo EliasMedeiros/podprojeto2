@@ -1,0 +1,59 @@
+package listener;
+
+import java.util.List;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import model.Categoria;
+import dao.DAOCategoria;
+
+@WebListener
+public class ContextParamListener implements ServletContextListener {
+	
+    public ContextParamListener() {
+    }
+
+    public void contextInitialized(ServletContextEvent context) {
+    	String[] tiposTelefone = {"Celular", "Residencial", "Comercial"};
+    	context.getServletContext().setAttribute("tiposTel", tiposTelefone);
+    	
+    	DAOCategoria daoCategoria = new DAOCategoria();
+    	List<Categoria> categoria = daoCategoria.findAllOrderBy("nome");
+    	context.getServletContext().setAttribute("categorias", categoria);
+    	
+    	String[] meses = {
+    			"Janeiro",
+    			"Fevereiro",
+    			"Março",
+    			"Abril",
+    			"Maio",
+    			"Junho",
+    			"Julho",
+    			"Agosto",
+    			"Setembro",
+    			"Outubro",
+    			"Novembro",
+    			"Dezembro" };
+    	
+    	context.getServletContext().setAttribute("meses", meses);
+    	
+    	String[] ordenacao = {
+    			"nome-Asc",
+    			"Nome do Produto (A-Z)",
+    			"nome-Desc",
+    			"Nome do Produto (Z-A)",
+    			"preco-Asc",
+    			"Preço (menor - maior)",
+    			"preco-Desc",
+    			"Preço (maior - menor)" };
+    	
+    	context.getServletContext().setAttribute("ordenacao", ordenacao);
+    	
+    }
+
+    public void contextDestroyed(ServletContextEvent arg0) {
+    }
+	
+}

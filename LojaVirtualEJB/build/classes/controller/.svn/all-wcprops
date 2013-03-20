@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/loja-virtual/!svn/ver/66/LojaVirtual/src/controller
+END
+ServeletAlterarDados.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/loja-virtual/!svn/ver/23/LojaVirtual/src/controller/ServeletAlterarDados.java
+END
+ServletLogOut.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/loja-virtual/!svn/ver/43/LojaVirtual/src/controller/ServletLogOut.java
+END
+ServletDetalhesProduto.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/loja-virtual/!svn/ver/43/LojaVirtual/src/controller/ServletDetalhesProduto.java
+END
+ServletCadastrarProduto.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/loja-virtual/!svn/ver/66/LojaVirtual/src/controller/ServletCadastrarProduto.java
+END
+ServletExibirProdutos.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/loja-virtual/!svn/ver/65/LojaVirtual/src/controller/ServletExibirProdutos.java
+END
+ServletMeuCarrinho.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/loja-virtual/!svn/ver/63/LojaVirtual/src/controller/ServletMeuCarrinho.java
+END
+ServletCadastrar.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/loja-virtual/!svn/ver/41/LojaVirtual/src/controller/ServletCadastrar.java
+END

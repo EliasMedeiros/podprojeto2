@@ -1,0 +1,11 @@
+package dao;
+
+import model.Cliente;
+
+public class DAOCliente extends DAOJPA<Cliente> {
+	
+	public DAOCliente() {
+		super();
+	}
+
+}

@@ -1,0 +1,47 @@
+package filtros;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+import model.Produto;
+import dao.DAOProduto;
+
+@WebFilter(
+			urlPatterns = { "/index.jsp" },
+			dispatcherTypes = {
+					DispatcherType.FORWARD,
+					DispatcherType.REQUEST
+			}
+		)
+public class FiltroIndex implements Filter {
+	
+	FilterConfig config;
+	
+	public void init(FilterConfig config) {
+		this.config = config;
+	}
+	
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+		DAOProduto daoProduto = new DAOProduto();
+		int quant = Integer.parseInt(request.getServletContext().getInitParameter("quantDestaque"));
+				
+		List<Produto> produtos = daoProduto.findDestaques(quant);
+		request.setAttribute("prodDestaque", produtos);
+		
+		chain.doFilter(request, response);
+	}
+	
+	public void destroy() {
+		this.config = null;
+	}
+
+}

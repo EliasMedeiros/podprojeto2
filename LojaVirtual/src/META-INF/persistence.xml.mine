@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+	<persistence-unit name="LojaVirtual" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<!-- INSERIR AQUI TODAS AS CLASSSES PERSISTENTES -->
+		<class>model.Pessoa</class>
+		<class>model.Telefone</class>
+		<class>model.Endereco</class>
+		<class>model.Categoria</class>
+		<class>model.Produto</class>
+		<class>model.Usuario</class>
+		<class>model.Cliente</class>
+		<class>model.Administrador</class>
+		<class>model.Venda</class>
+		<class>model.Item</class>
+		<class>model.Marca</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.Driver" value="org.postgresql.Driver" />
+		    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/loja" />
+		    <property name="javax.persistence.jdbc.user" value="postgres" />
+		    <property name="javax.persistence.jdbc.password" value="admin" />
+		    <property name="eclipselink.logging.level" value="OFF" />
+		    <!-- OFF, FINE, FINEST -->
+		    <property name="eclipselink.ddl-generation" value="update-tables" />
+		    <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+		</properties>
+
+	</persistence-unit>
+</persistence>

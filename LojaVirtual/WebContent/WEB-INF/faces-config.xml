@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+
+<application> 
+	<message-bundle>messages.msg</message-bundle>
+	<resource-bundle>
+		<base-name>messages.msg</base-name>
+		<var>msg</var>
+	</resource-bundle>	
+	<locale-config>            
+		<default-locale>pt_BR</default-locale>    
+		<supported-locale>es</supported-locale>  
+		<supported-locale>de</supported-locale>  
+	</locale-config>
+</application>
+
+<managed-bean>
+	<managed-bean-name>controlador</managed-bean-name>
+	<managed-bean-class>controller.ControladorGeral</managed-bean-class>
+	<managed-bean-scope>view</managed-bean-scope>
+</managed-bean>
+
+<converter>
+	<converter-id>ConversorMinusculo</converter-id>
+	<converter-class>converter.ConversorMinusculo</converter-class>
+</converter>
+
+<converter>
+	<converter-id>ConversorMaiusculo</converter-id>
+	<converter-class>converter.ConversorMaiusculo</converter-class>
+</converter>    
+
+<converter>
+	<converter-id>ConversorCPF</converter-id>
+	<converter-class>converter.ConversorCPF</converter-class>
+</converter>
+</faces-config>

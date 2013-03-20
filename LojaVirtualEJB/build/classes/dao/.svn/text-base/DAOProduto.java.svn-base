@@ -1,0 +1,25 @@
+package dao;
+
+import java.util.List;
+
+import model.Produto;
+
+public class DAOProduto extends DAOJPA<Produto> {
+	
+	public DAOProduto() {
+		super();
+	}
+	
+	public Produto findById(int id) {
+		return (Produto) super.findByQuery("SELECT p FROM Produto p WHERE p.id = "+ id);
+	}
+	
+	public long getQuantidadeDeProdutos() {
+		return (Long) super.findByQuery("SELECT count(p) FROM Produto p");
+	}
+	
+	public List<Produto> findDestaques(int quant) {
+		return (List<Produto>) super.findAllByQuery("SELECT p FROM Produto p ORDER BY p.quantidadeVendida DESC", quant);
+	}
+
+}

@@ -1,0 +1,89 @@
+10
+
+dir
+67
+https://subversion.assembla.com/svn/loja-virtual/LojaVirtual/src
+https://subversion.assembla.com/svn/loja-virtual
+
+
+
+2011-12-06T14:54:07.501705Z
+66
+byakki
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6af4f647-7ab7-41c8-bf94-e9f74242c5b9
+
+META-INF
+dir
+
+controller
+dir
+
+dao
+dir
+
+filtros
+dir
+
+listener
+dir
+
+model
+dir
+
+postgresql-9.1-901.jdbc3.jar
+file
+
+
+
+
+2011-12-06T01:36:00.750000Z
+633012ecafbdf680f4f7488d99952818
+2011-11-27T21:09:42.575182Z
+17
+byakki
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+509746
+
+projeto
+dir
+
+tags
+dir
+
+teste
+dir
+

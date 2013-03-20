@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/pages/Templates/template.xhtml">
+	<ui:define name="conteudo">
+
+		<h:panelGroup rendered="#{!usuarioBean.logado}">
+        	<h:form>
+					<h3>#{msg.dados}</h3>
+					<center>
+						<span>
+							<h:messages globalOnly="true" warnStyle="color: green" infoStyle="color: blue" errorStyle="color: red"/><br />
+						</span>
+					</center>
+					
+					<table cellspacing="3" id="tabelaMeusDados">
+						<tr>
+							<th><h:outputLabel for="clogin"><span class="warning">* </span>#{msg.login}:</h:outputLabel></th>
+							<td><p:inputText required="true" requiredMessage="Campo Login obrigatório" converter="ConversorMinusculo" id="clogin" name="clogin" type="text" maxlength="15" value="#{usuarioBean.usuario.login}"></p:inputText></td>
+						</tr>
+						<tr><th></th><td><h:message for="clogin" style="color:red"/></td></tr>
+							<tr>
+								<th><h:outputLabel for="cpass"><span class="warning">* </span>#{msg.senha}:</h:outputLabel></th>
+								<td><p:inputText id="cpass" name="cpass" type="password" maxlength="20" value="#{usuarioBean.pass}"/></td>
+								<th></th><td></td><th></th><td><h:message for="cpass" style="color:red"/></td>
+								<th><h:outputLabel for="cpass2"><span class="warning">* </span>#{msg.repetesenha}:</h:outputLabel></th>
+								<td><h:inputText required="true" requiredMessage="pass2 obrigarório" id="cpass2" name="cpass2" type="password" maxlength="20" value="#{usuarioBean.pass2}" validator="#{usuarioBean.ValidaUsuario}"/></td></tr>
+							<tr><th></th><td><h:message for="cpass2" style="color:red"/></td></tr>
+						
+						<tr>
+							<th><h:outputLabel for="cemail"><span class="warning">* </span>#{msg.email}:</h:outputLabel></th>
+							<td><p:inputText id="cemail" name="cemail" type="text" size="30" value="#{usuarioBean.usuario.pessoa.email}"/></td>
+						</tr>
+						<tr>
+							<td colspan="4"><hr /></td>
+						</tr>
+					</table>
+					<h3>Dados Pessoais</h3>
+					<table cellspacing="3" id="tabelaMeusDados" >
+						<tr>
+							<th><h:outputLabel for="cnome"><span class="warning">* </span>#{msg.nome}:</h:outputLabel></th>
+							<td><p:inputText id="cnome" name="cnome" value="#{usuarioBean.usuario.pessoa.nome}" converter="ConversorMaiusculo" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="ccpf"><span class="warning">* </span>#{msg.cpf}:</h:outputLabel></th>
+							<td><p:inputMask  id="ccpf" name="ccpf" value="#{usuarioBean.usuario.pessoa.cpf}" mask="999.999.999-99" 
+							requiredMessage="Campo CPF obrigatório." required="true">
+								<f:convertNumber integerOnly="true"/>
+								<f:converter converterId="ConversorCPF" for="ccpf"/>
+							</p:inputMask></td></tr>
+							<tr><th></th><td><h:message for="ccpf" style="color:red"/></td>
+							</tr>
+						
+						<tr>
+							<th><h:outputLabel for="crg"><span class="warning">* </span>#{msg.rg}:</h:outputLabel></th>
+							<td><p:inputText id="crg" name="crg" type="text" value="#{usuarioBean.usuario.pessoa.rg}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="cendereco"><span class="warning">* </span>#{msg.endereco}:</h:outputLabel></th>
+							<td><p:inputText id="cendereco" name="cendereco" type="text" size="35" value="#{usuarioBean.usuario.pessoa.endereco.endereco}" /></td>
+							<th><h:outputLabel for="cnum"><span class="warning">* </span>#{msg.numero}:</h:outputLabel></th>
+							<td><p:inputText id="cnum" name="cnum" type="text" size="5" value="#{usuarioBean.usuario.pessoa.endereco.numero}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="cbairro"><span class="warning">* </span>#{msg.bairro}:</h:outputLabel></th>
+							<td><p:inputText id="cbairro" name="cbairro" type="text" size="35" value="#{usuarioBean.usuario.pessoa.endereco.bairro}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="ccomp">Complemento:</h:outputLabel></th>
+							<td><p:inputText id="ccomp" name="ccomp" type="text" value="#{usuarioBean.usuario.pessoa.endereco.complemento}" /></td>
+							<th><h:outputLabel for="ccep"><span class="warning">* </span>#{msg.cep}:</h:outputLabel></th>
+							<td><p:inputText id="ccep" name="ccep" type="text" value="#{usuarioBean.usuario.pessoa.endereco.cep}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="ccidade"><span class="warning">* </span>#{msg.cidade}:</h:outputLabel></th>
+							<td><p:inputText id="ccidade" name="ccidade" type="text" value="#{usuarioBean.usuario.pessoa.endereco.cidade}" /></td>
+							<th><h:outputLabel for="cestado"><span class="warning">* </span>#{msg.estado}:</h:outputLabel></th>
+							<td><p:inputText id="cestado" name="cestado" type="text" value="#{usuarioBean.usuario.pessoa.endereco.estado}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="ctelcel"><span class="warning">* </span>#{msg.celular}:</h:outputLabel></th>
+							<td><p:inputText id="ctelcel" name="ctelcel" type="text" value="#{usuarioBean.usuario.pessoa.celular}" /></td>
+						</tr>
+						<tr>
+							<th><h:outputLabel for="ctelres">#{msg.residencial}:</h:outputLabel></th>
+							<td><p:inputText id="ctelres" name="ctelres" type="text" value="#{usuarioBean.usuario.pessoa.residencial}" /></td>
+						</tr>
+						<tr>
+							<th><p:outputLabel for="ctelcom">#{msg.comercial}:</p:outputLabel></th>
+							<td><p:inputText id="ctelcom" name="ctelcom" type="text" value="#{usuarioBean.usuario.pessoa.comercial}" /></td>
+						</tr>
+						<tr><td colspan="4"><hr /></td></tr>
+						<tr><td><span class="warning">*#{msg.obrigatorios}.</span></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr>
+							<td colspan="2">
+							<h:commandButton type="submit" value="#{msg.salvar}" actionListener="#{usuarioBean.Testeadmin}"/> 
+							<h:commandButton type="button" value="#{msg.cancelar}" onclick="javascript:window.location = '/LojaVirtual/pages/meusDados.jsf'" /></td>
+						</tr>
+					</table>
+				</h:form>
+	        </h:panelGroup>
+
+
+
+
+		<h:panelGroup rendered ="#{usuarioBean.logado}">
+				<img src="/LojaVirtual/img/#{msg.img}/dadosuser.jpg" />
+					<form method="post" action="">
+					<br /><br />
+						<h:messages for="AlterarDados" globalOnly="true" warnStyle="color: green" infoStyle="color: blue" errorStyle="color: red"/>
+						<table cellspacing="3" id="tabelaMeusDados">
+							<tr>
+								<th>#{msg.login}:</th>
+								<td>#{usuarioBean.usuario.login}</td>
+							</tr>
+							<tr>
+								<th>#{msg.nome}:</th>
+								<td>#{usuarioBean.usuario.pessoa.nome }</td>
+							</tr>
+							<tr>
+								<th>#{msg.email}:</th>
+								<td>#{usuarioBean.usuario.pessoa.email }</td>
+							</tr>
+							<tr>
+								<th>#{msg.rg}:</th>
+								<td>#{usuarioBean.usuario.pessoa.rg }</td>
+							</tr>
+							<tr>
+								<th>#{msg.cpf}:</th>
+								<td>#{usuarioBean.usuario.pessoa.cpf }</td>
+							</tr>
+							<tr>
+								<th>#{msg.endereco}:</th>
+								<td>#{usuarioBean.usuario.pessoa.endereco.endereco2 }</td>
+							</tr>
+							<tr>
+								<th>#{msg.bairro}:</th>
+								<td>#{usuarioBean.usuario.pessoa.endereco.bairro }</td>
+							</tr>
+							<tr>
+								<th>#{msg.cidade}:</th>
+								<td>#{usuarioBean.usuario.pessoa.endereco.cidade }</td>
+							</tr>
+							<tr>
+								<th>#{msg.estado}:</th>
+								<td>#{usuarioBean.usuario.pessoa.endereco.estado }</td>
+							</tr>
+							<tr>
+								<th>#{msg.cep}:</th>
+								<td>#{usuarioBean.usuario.pessoa.endereco.cep }</td>
+							</tr>
+							<tr><td>&nbsp;</td></tr>
+							<tr><td colspan="2"><hr /></td></tr>
+						</table>
+					</form>			
+		</h:panelGroup>
+	</ui:define> 
+</ui:composition>
+</html>

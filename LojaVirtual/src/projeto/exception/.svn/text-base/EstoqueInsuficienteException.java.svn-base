@@ -1,0 +1,9 @@
+package projeto.exception;
+
+public class EstoqueInsuficienteException extends Exception {
+	
+	public EstoqueInsuficienteException() {
+		super("Estoque Insuficiente!");
+	}
+
+}

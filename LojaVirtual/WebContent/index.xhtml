@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/pages/Templates/template.xhtml">
+	<ui:define name="conteudo">
+		<img src="/LojaVirtual/img/#{msg.img}/destaque.jpg" />
+		<ui:repeat var="livro" value="#{produtosBean.listarLivrosDestaque}">
+			<div id="produto">
+				<a href="/LojaVirtual/pages/detalhes.jsf?prod=#{livro.id}">
+					<img class="imagem" src ="/LojaVirtual/img/imagemProdutos/#{livro.imagem}"/><br/>
+					<br /> <h:outputText value="#{livro.nome}"/>
+					<br /> <span class="precoProd"><h:outputText value="R$ #{livro.preco}" /></span>
+				</a>
+				<br /> <br/>
+				<h:panelGroup rendered="#{usuarioBean.admin}">
+				    <a href="/LojaVirtual/pages/detalhes.jsf?prod=#{livro.id}&amp;operacao=editar"><img src="/LojaVirtual/img/#{msg.img}/editar.jpg" alt="#{msg.editar}" title="#{msg.editar}" /></a>
+				</h:panelGroup> 
+				<h:panelGroup rendered="#{!usuarioBean.admin}">
+					<a href="/LojaVirtual/pages/carrinho.jsf?operacao=adicionar&amp;itemID=#{livro.id}"><img src="/LojaVirtual/img/#{msg.img}/comprar.jpg" alt="Adicionar ao Carrinho" title="Adicionar ao Carrinho" /></a>
+				</h:panelGroup>
+				<br /> <br /> <br/> <br/>
+			</div>
+        </ui:repeat>
+	</ui:define> 
+</ui:composition>
+</html>

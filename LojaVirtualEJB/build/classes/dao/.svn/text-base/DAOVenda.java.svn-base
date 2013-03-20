@@ -1,0 +1,11 @@
+package dao;
+
+import model.Venda;
+
+public class DAOVenda extends DAOJPA<Venda> {
+	
+	public DAOVenda() {
+		super();
+	}
+
+}

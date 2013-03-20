@@ -1,0 +1,81 @@
+package filtros;
+
+import java.io.IOException;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import model.Administrador;
+import model.Usuario;
+import dao.DAOUsuario;
+
+@WebFilter(
+			urlPatterns = {"*"},
+			dispatcherTypes = {
+					DispatcherType.FORWARD,
+					DispatcherType.REQUEST
+			}
+		)
+public class FiltroLogin implements Filter {
+	
+	FilterConfig config;
+	
+	public void init(FilterConfig config) {
+		this.config = config;
+	}
+	
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		Usuario usuario = (Usuario)session.getAttribute("user");
+		String login = request.getParameter("login");
+		String senha = request.getParameter("pass");
+		
+		/* Valida o usuário caso o mesmo ainda não esteja logado e tenha informado um login e senha. */
+		if(usuario == null && login != null && senha != null) {
+			usuario = usuarioSenhaValidos(login,senha);
+			if(usuario != null) {
+				session.setAttribute("user", usuario);
+			}
+			request.setAttribute("erroMsgLogin", "Usuário/Senha inválido(s)!");
+		}
+		
+		if(usuario != null) {
+			try {
+				if( ((Administrador)usuario ).getNivelPermissao() >= 0) {
+					request.setAttribute("admin", true);
+				}
+			} catch (ClassCastException e) {
+				request.setAttribute("admin", false);
+			}
+		}
+		
+		chain.doFilter(request, response);
+	}
+	
+	public void destroy() {
+		this.config = null;
+	}
+	
+	/*
+	 * Verifica se o usuário existe e se a senha informada está correta
+	 */
+	private Usuario usuarioSenhaValidos(String login, String senha) {
+		if(login == "" || senha == "") return null;
+		DAOUsuario daoUsuario = new DAOUsuario();
+		Usuario usuario = daoUsuario.findByLogin(login);
+		if (usuario != null && usuario.getSenha().equals(senha) ) {
+			return usuario;
+		}
+		return null;
+	}
+
+}

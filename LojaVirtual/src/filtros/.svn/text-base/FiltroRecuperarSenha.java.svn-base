@@ -1,0 +1,74 @@
+package filtros;
+
+import java.io.IOException;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+import model.Usuario;
+import dao.DAOUsuario;
+
+@WebFilter(urlPatterns = { "/pages/meusDados.jsp" }, dispatcherTypes = {
+		DispatcherType.REQUEST, DispatcherType.FORWARD })
+public class FiltroRecuperarSenha implements Filter {
+
+	FilterConfig config;
+
+	public void init(FilterConfig config) {
+		this.config = config;
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws ServletException, IOException {
+		String recuperar = request.getParameter("recuperar");
+		if (recuperar != null && recuperar.equals("ok")) {
+
+			String login = request.getParameter("user");
+			Usuario user = usuarioSenhaValidos(login);
+			if (user == null) {
+				request.setAttribute("erroMsgRecuperar",
+						"Usuário não cadastrado!");
+			} else {
+				resetarSenha(user);
+				request.setAttribute("sucessoRecuperar",
+						"Um e-mail foi enviado contendo informações de como recurar sua senha.");
+			}
+		}
+		chain.doFilter(request, response);
+	}
+
+	public void destroy() {
+		this.config = null;
+	}
+
+	/*
+	 * Verifica se o usuário existe e se a senha informada está correta
+	 */
+	private Usuario usuarioSenhaValidos(String login) {
+		if (login == "")
+			return null;
+		DAOUsuario daoUsuario = new DAOUsuario();
+		Usuario usuario = daoUsuario.findByLogin(login);
+		daoUsuario.close();
+		if (usuario != null) {
+			return usuario;
+		}
+		return null;
+	}
+
+	private void resetarSenha(Usuario user) {
+		DAOUsuario daoUsuario = new DAOUsuario();
+		daoUsuario.begin();
+		user.setSenha("123");
+		daoUsuario.merge(user);
+		daoUsuario.commit();
+		daoUsuario.close();
+	}
+
+}

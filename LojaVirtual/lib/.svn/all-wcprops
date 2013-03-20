@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib
+END
+postgresql-8.3-603.jdbc3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/postgresql-8.3-603.jdbc3.jar
+END
+postgresql-9.1-901.jdbc3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/postgresql-9.1-901.jdbc3.jar
+END
+javax.persistence_2.0.0.v201002051058.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/javax.persistence_2.0.0.v201002051058.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/standard.jar
+END
+jstl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/jstl.jar
+END
+eclipselink.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/loja-virtual/!svn/ver/17/LojaVirtual/lib/eclipselink.jar
+END

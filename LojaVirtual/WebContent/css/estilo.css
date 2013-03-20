@@ -1,0 +1,291 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family: Calibri, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-image: url(../img/bg.jpg);
+	background-repeat: repeat-x;
+}
+
+a {
+	color: navy;
+	text-decoration: none;	
+}
+
+a img {
+	border: 0px;
+}
+
+#main {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#login {
+	padding-top: 2px;
+	vertical-align: middle;
+	display: table-cell;
+	float: right;
+	color: #FFFFFF;
+	height: 30px;
+}
+
+#bemvindo {
+	float: left;
+	padding-right: 5px;
+}
+
+#sair {
+	float: right;
+}
+
+#logo {
+	clear: both;
+	background-image: url(../img/logo.png);
+	height: 158px;
+}
+
+#menu {
+	background-image: url(../img/menu.jpg);
+	background-repeat: no-repeat;
+	height: 30px;
+	max-height: 30px;
+	padding-right: 5px;
+	text-align: left;
+}
+
+.erroMsg {
+	color: red;
+	text-align: center;
+	font-size: small;
+}
+
+.msgSucesso {
+	color: blue;
+	font-size: small;
+	text-align: center;
+}
+
+.aviso {
+	text-align: center;
+}
+
+.warning {
+	font-size: small;
+	font-style: italic;
+	color: red;
+}
+
+#carrinho {
+	width: 100%;
+	padding-left: 5%; 
+}
+
+#carrinhoTable {
+	width: 90%;
+	text-align: center;
+}
+
+#carrinho .carrinhoProds {
+	min-width: 80%;
+	max-width: 80%;
+}
+
+#carrinhoTable .carrinhoProd {
+	text-align: left;
+}
+
+#carrinhoTable .carrinhototal {
+	text-align: right;
+}
+
+#carrinhoTable tr:HOVER {
+	background-color: #e7ebee;
+	border-color: #e7ebee;
+}
+
+.btnRefresh {
+	width: 15px;
+	border-style: outset;
+	border-color: #bfbfbf;
+}
+
+.btnRefresh:ACTIVE {
+	border-style: inset;
+}
+
+#banner {
+	width: 900px;
+	height: 190px;
+	margin-bottom: 10px;
+}
+
+#content {
+	clear: both;
+	margin-top: 10px;
+}
+
+#left {
+	float: left;
+	width: 170px;
+}
+
+#merchan {
+	margin-top: 20px;
+}
+
+#right {
+	width: 730px;
+	float: left;
+}
+
+#right h3 {
+	text-align: center;
+}
+
+#right #tabelaMeusDados {
+	width: 100%;
+	text-align: left;
+	padding-left: 20px;
+}
+
+#right #tabelaMeusDados th {
+	width: 25%;
+}
+
+#produto {
+	text-align: center;
+	float: left;
+	width: 180px;
+}
+
+#produto .precoProd {
+	font-size: small;
+}
+
+#produto img {
+	max-width: 110px; 
+	max-height: 150px;
+}
+
+#produto .imagem {
+	max-width: 150px;
+	border: 1px;
+	border-style: solid;
+	border-color: gray;
+}
+
+#conteudo {
+	padding: 20px;
+	text-align: center;
+}
+
+#prodDetailIMG {
+	width: 40%;
+	float: left;
+}
+
+#prodDetailIMG img {
+	width: 200px;
+}
+
+#prodDetailInfo {
+	width: 40%;
+	float: left;
+}
+
+#prodDetailDesc {
+	clear: both;
+	padding-top: 10px; 
+	text-align: left;
+}
+
+#left li {
+	list-style-image: url(../img/li.jpg);
+}
+
+#formNovoProd {
+	padding: 10px;
+	padding-top: 20px;
+}
+
+#formNovoProd table {
+	width: 100%;
+}
+
+#formNovoProd th {
+	min-width: 20%;
+}
+
+#formNovoProd #campoOutraCategoria {
+	visibility: hidden;
+}
+
+#conteudoLogin {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+#conteudoLogin #autenticar {
+	min-height: 300px;
+	float: left;
+	width: 300px;
+	background-image: url(../img/box.jpg);
+	background-repeat: no-repeat;
+}
+
+#conteudoLogin #autenticar a {
+	font-size: small;
+}
+
+#conteudoLogin #autenticar h3 {
+	text-align: center;
+}
+
+#conteudoLogin #lembrar {
+	min-height: 300px;
+	float: left;
+	width: 300px;
+	background-image: url(../img/box.jpg);
+	background-repeat: no-repeat;
+}
+
+#conteudoLogin #lembrar h3 {
+	text-align: center;
+}
+
+#filtroItens {
+	width: 100%;
+	clear: both;
+	font-size: small;
+}
+
+#filtroPages {
+	clear: both;
+}
+
+#filtroPages .pageAtual {
+	text-decoration: underline;
+}
+
+#filtroItens select {
+	font-size: smaller;
+}
+
+.logout {
+	position: relative;
+	width: 30px;
+}
+
+#footer {
+	clear: both;
+	width: 100%;
+	height: 200px;
+	background-image: url(../img/footerbg.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+	color: #FFFFFF;
+	padding-top: 100px;
+}
